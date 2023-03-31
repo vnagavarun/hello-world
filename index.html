@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Webix Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.webix.com/edge/webix.css" type="text/css">
+    <script src="https://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="layout" style="width:100%; height:100%;"></div>
+    <script type="text/javascript">
+        webix.ui({
+            view: "layout",
+            rows: [
+                {
+                    view: "toolbar",
+                    elements: [
+                        { view: "label", label: "My Webix Page" },
+                        { view: "button", value: "Click me!", width: 100 }
+                    ]
+                },
+                {
+                    view: "form",
+                    elements: [
+                        { view: "text", label: "Name", name: "name", invalidMessage: "Please enter your name" },
+                        { view: "text", label: "Email", name: "email", invalidMessage: "Please enter a valid email address" },
+                        { view: "textarea", label: "Message", name: "message", height: 150 },
+                        { view: "button", value: "Send", type: "form" }
+                    ]
+                },
+                {
+                    view: "datatable",
+                    columns: [
+                        { id: "id", header: "ID", width: 50 },
+                        { id: "name", header: "Name", width: 150 },
+                        { id: "email", header: "Email", width: 200 },
+                        { id: "message", header: "Message", fillspace: true }
+                    ],
+                    data: [
+                        { id: 1, name: "John Doe", email: "john.doe@example.com", message: "Hello World" },
+                        { id: 2, name: "Jane Doe", email: "jane.doe@example.com", message: "Hi there" }
+                    ]
+                }
+            ]
+        }, $$("layout"));
+    </script>
+</body>
+</html>
